@@ -1,0 +1,12 @@
+{
+  "targets": [
+    {
+      "url": "XXX",
+      "selector": "YYY"
+    },
+    {
+      "url": "XXX2",
+      "selector": "YYY2"
+    }
+  ]
+}
