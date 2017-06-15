@@ -1,3 +1,5 @@
+package com.diogonunes;
+
 import java.util.List;
 
 class Target {

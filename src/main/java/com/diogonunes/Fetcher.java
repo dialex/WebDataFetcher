@@ -1,3 +1,5 @@
+package com.diogonunes;
+
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import org.openqa.selenium.WebDriver;
