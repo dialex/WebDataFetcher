@@ -1,12 +1,12 @@
 {
   "targets": [
     {
-      "url": "www.google.com",
-      "selector": "YYY"
+      "url": "https://coinmarketcap.com/#EUR",
+      "selector": "#id-iota td:nth-child(4) a"
     },
     {
       "url": "https://coinmarketcap.com/#EUR",
-      "selector": "YYY2"
+      "selector": "#id-dash td:nth-child(4) a"
     }
   ]
 }

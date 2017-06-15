@@ -1,6 +1,8 @@
-import com.codeborne.selenide.Configuration;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
 import java.io.FileReader;
@@ -10,20 +12,22 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-
 public class Fetcher {
 
+    private static WebDriver browser;
+
     public static void main(String[] args) {
-        initWebFetcher();
         try {
+            browser = new ChromeDriver();
             Config config = readConfig();
             List<String> results = fetchData(config.targets);
             writeResults(results);
         } catch (Exception e) {
             System.out.println("The program will exit due to a fatal error: " + e.getMessage());
             System.out.println("\nDebug details: " + e.getStackTrace());
+        } finally {
+            if (browser != null)
+                browser.quit();
         }
     }
 
@@ -59,10 +63,10 @@ public class Fetcher {
     private static String navigateAndExtract(String url, String selector) {
         URL validUrl = validateUrl(url);
         if (validUrl != null) {
-            // Navigate
-            open(validUrl);
-            // Extract
-            return $(selector).getText();
+            System.out.println("\tNavigating...");
+            browser.navigate().to(validUrl);
+            System.out.println("\tExtracting...");
+            return browser.findElement(By.cssSelector(selector)).getText();
         } else {
             System.out.println("Ignoring malformed url: " + url);
             return "";
@@ -82,10 +86,5 @@ public class Fetcher {
         } catch (MalformedURLException e) {
             return null;
         }
-    }
-
-    private static void initWebFetcher() {
-        Configuration.browser = "chrome";
-        Configuration.timeout = 1000 * 3;
     }
 }
