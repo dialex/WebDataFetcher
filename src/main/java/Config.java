@@ -1,7 +1,5 @@
 import java.util.List;
 
-public class Config {
-
-    public List<Target> targets = null;
-
+class Config {
+    List<Target> targets = null;
 }

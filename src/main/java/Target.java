@@ -1,4 +1,6 @@
-public class Target {
-    public String url;
-    public String selector;
+import java.util.List;
+
+class Target {
+    String url;
+    List<String> selectors;
 }
