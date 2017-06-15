@@ -16,9 +16,9 @@ public class Fetcher {
     private static WebDriver browser;
 
     public static void main(String[] args) {
-        Helper.helloWorld();
         try {
             browser = new ChromeDriver();
+            Helper.helloWorld();
             Config config = readConfig();
             List<String> results = fetchData(config.targets);
             export(results);
