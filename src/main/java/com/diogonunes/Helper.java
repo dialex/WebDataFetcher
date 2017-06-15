@@ -15,6 +15,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 
 abstract class Helper {
@@ -79,4 +80,17 @@ abstract class Helper {
         }
     }
 
+    public static void helloWorld() {
+        List<String> greet = Arrays.asList(
+                "  _    _                    _           _  _         _              ",
+                " | |  | |                  | |         | |(_)       | |             ",
+                " | |_ | |__    __ _  _ __  | | __    __| | _   __ _ | |  ___ __  __ ",
+                " | __|| '_ \\  / _` || '_ \\ | |/ /   / _` || | / _` || | / _ \\\\ \\/ / ",
+                " | |_ | | | || (_| || | | ||   <   | (_| || || (_| || ||  __/ >  <  ",
+                "  \\__||_| |_| \\__,_||_| |_||_|\\_\\   \\__,_||_| \\__,_||_| \\___|/_/\\_\\ ",
+                "                                                                    ",
+                "                                                                    "
+        );
+        writeToScreen(greet);
+    }
 }

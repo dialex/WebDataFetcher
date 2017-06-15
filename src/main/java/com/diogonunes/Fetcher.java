@@ -16,6 +16,7 @@ public class Fetcher {
     private static WebDriver browser;
 
     public static void main(String[] args) {
+        Helper.helloWorld();
         try {
             browser = new ChromeDriver();
             Config config = readConfig();
