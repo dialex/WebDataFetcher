@@ -20,6 +20,20 @@ import java.util.List;
 
 abstract class Helper {
 
+    static void helloWorld() {
+        List<String> greet = Arrays.asList(
+                "  _    _                    _           _  _         _              ",
+                " | |  | |                  | |         | |(_)       | |             ",
+                " | |_ | |__    __ _  _ __  | | __    __| | _   __ _ | |  ___ __  __ ",
+                " | __|| '_ \\  / _` || '_ \\ | |/ /   / _` || | / _` || | / _ \\\\ \\/ / ",
+                " | |_ | | | || (_| || | | ||   <   | (_| || || (_| || ||  __/ >  <  ",
+                "  \\__||_| |_| \\__,_||_| |_||_|\\_\\   \\__,_||_| \\__,_||_| \\___|/_/\\_\\ ",
+                "                                                                    ",
+                "                                                                    "
+        );
+        writeToScreen(greet);
+    }
+
     static String extract(WebDriver browser, String selector) {
         WebElement element = Helper.waitUntilVisible(browser, selector);
         if (element != null) {
@@ -49,12 +63,12 @@ abstract class Helper {
         }
     }
 
-    static void writeToScreen(List<String> results) {
+    private static void writeToScreen(List<String> results) {
         for (String result : results)
             System.out.println(result);
     }
 
-    static URL validateUrl(String url) {
+    private static URL validateUrl(String url) {
         try {
             return new URL(url);
         } catch (MalformedURLException e) {
@@ -80,17 +94,4 @@ abstract class Helper {
         }
     }
 
-    public static void helloWorld() {
-        List<String> greet = Arrays.asList(
-                "  _    _                    _           _  _         _              ",
-                " | |  | |                  | |         | |(_)       | |             ",
-                " | |_ | |__    __ _  _ __  | | __    __| | _   __ _ | |  ___ __  __ ",
-                " | __|| '_ \\  / _` || '_ \\ | |/ /   / _` || | / _` || | / _ \\\\ \\/ / ",
-                " | |_ | | | || (_| || | | ||   <   | (_| || || (_| || ||  __/ >  <  ",
-                "  \\__||_| |_| \\__,_||_| |_||_|\\_\\   \\__,_||_| \\__,_||_| \\___|/_/\\_\\ ",
-                "                                                                    ",
-                "                                                                    "
-        );
-        writeToScreen(greet);
-    }
 }
