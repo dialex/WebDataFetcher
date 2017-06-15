@@ -1,0 +1,17 @@
+{
+  "targets": [
+    {
+      "url": "https://coinmarketcap.com/#EUR",
+      "selectors": [
+        "#id-iota td:nth-child(4) a",
+        "#id-dash td:nth-child(4) a"
+      ]
+    },
+    {
+      "url": "https://www.bitfinex.com/",
+      "selectors": [
+        "span[title='IOTUSD Last Trade']"
+      ]
+    }
+  ]
+}

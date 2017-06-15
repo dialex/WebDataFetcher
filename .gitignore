@@ -94,3 +94,4 @@ hs_err_pid*
 .idea/modules/WebDataFetcher_test.iml
 .idea/vcs.xml
 /fetched.txt
+!/release/WebDataFetcher-1.0.jar
