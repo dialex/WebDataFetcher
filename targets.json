@@ -1,11 +1,11 @@
 {
   "targets": [
     {
-      "url": "XXX",
+      "url": "www.google.com",
       "selector": "YYY"
     },
     {
-      "url": "XXX2",
+      "url": "https://coinmarketcap.com/#EUR",
       "selector": "YYY2"
     }
   ]
