@@ -9,6 +9,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +25,7 @@ public class Fetcher {
             browser = new ChromeDriver();
             Config config = readConfig();
             List<String> results = fetchData(config.targets);
-            writeResults(results);
+            export(results);
         } catch (Exception e) {
             System.out.println("The program will exit due to a fatal error: " + e.getMessage());
             System.out.println("\nDebug details: " + e.getStackTrace());
@@ -31,18 +35,33 @@ public class Fetcher {
         }
     }
 
-    private static void writeResults(List<String> results) {
+    private static void export(List<String> results) {
         if (results.size() == 0) {
             System.out.println("No results.");
         } else {
-            for (String result : results)
-                System.out.println(result);
+            //writeToScreen(results);
+            writeToFile(results);
         }
+    }
+
+    private static void writeToFile(List<String> results) {
+        try {
+            Path file = Paths.get("fetched.txt");
+            Files.write(file, results, Charset.forName("UTF-8"));
+        } catch (IOException e) {
+            System.out.println("Could not write results to file: " + e.getMessage());
+        }
+    }
+
+    private static void writeToScreen(List<String> results) {
+        for (String result : results)
+            System.out.println(result);
     }
 
     private static List<String> fetchData(List<Target> targets) {
         List<String> fetched = new ArrayList<>(targets.size());
         for (Target target : targets) {
+            System.out.println("Target: " + target.url);
             String data = navigateAndExtract(target.url, target.selector);
             fetched.add(data);
         }
