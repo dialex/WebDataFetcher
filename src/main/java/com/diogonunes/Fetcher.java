@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 import java.io.FileReader;
@@ -17,7 +18,7 @@ public class Fetcher {
 
     public static void main(String[] args) {
         try {
-            browser = new ChromeDriver();
+            browser = initDriver();
             Helper.helloWorld();
             Config config = readConfig();
             List<String> results = fetchData(config.targets);
@@ -29,6 +30,12 @@ public class Fetcher {
             if (browser != null)
                 browser.quit();
         }
+    }
+
+    private static WebDriver initDriver() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        return new ChromeDriver(options);
     }
 
     private static Config readConfig() throws IOException {
