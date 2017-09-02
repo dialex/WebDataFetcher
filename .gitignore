@@ -92,5 +92,6 @@ hs_err_pid*
 *.iml
 .gradle/
 .idea/
+build/
 /fetched.txt
-!/release/WebDataFetcher-1.0.jar
+!/release/WebDataFetcher-*.jar
