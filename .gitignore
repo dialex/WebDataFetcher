@@ -88,10 +88,9 @@ fabric.properties
 hs_err_pid*
 
 # End of https://www.gitignore.io/api/java,intellij
+
+*.iml
 .gradle/
-.idea/compiler.xml
-.idea/modules/WebDataFetcher_main.iml
-.idea/modules/WebDataFetcher_test.iml
-.idea/vcs.xml
+.idea/
 /fetched.txt
 !/release/WebDataFetcher-1.0.jar
